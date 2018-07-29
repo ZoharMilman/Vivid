@@ -1,3 +1,5 @@
+//point.h
+
 class Point
 {
 private:
@@ -13,8 +15,8 @@ public:
 	float getX();
 	float getY();
 	float getZ();
-	float getIndex();
-	float getFaces();
+	int getIndex();
+	int getFaces();
 	void setX(int x);
 	void setY(int y);
 	void setZ(int z);
