@@ -43,17 +43,17 @@ int Point::getFaces() {
 }
 
 
-void Point::setX(int x) {
+void Point::setX(float x) {
 	this->x = x;
 }
 
 
-void Point::setY(int y) {
+void Point::setY(float y) {
 	this->y = y;
 }
 
 
-void Point::setZ(int z) {
+void Point::setZ(float z) {
 	this->z = z;
 }
 
@@ -79,4 +79,8 @@ bool Point::isPointDel() {
 		return true;
 	}
 	return false;
+}
+
+
+Point:: ~Point() {
 }
