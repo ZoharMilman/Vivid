@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Surf.h"
 using namespace std;
 

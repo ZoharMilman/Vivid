@@ -17,9 +17,9 @@ public:
 	float getZ();
 	int getIndex();
 	int getFaces();
-	void setX(int x);
-	void setY(int y);
-	void setZ(int z);
+	void setX(float x);
+	void setY(float y);
+	void setZ(float z);
 	void setIndex(int num);
 	void facesAdd(); // add 1 to the amount of faces that use this point
 	void facesSub(); // sub 1 fron the amount of faces that use this point
