@@ -1,19 +1,18 @@
-
-#include "Face.h"
-#include <vector>
-
+#pragma once
+#include "Mesh.h"
 using namespace std;
 
-class Surf {
+class Surf: public Mesh {
 private:
-	vector<Face> vecFaces;
-	vector<Point> vecPoints;
-	string label;
-	float Vmin; //Tomer: should be in the export, not here
-	float Vmax; //Tomer: the same
 
+	float ** inputPoints; // the original points that we got as an input
+
+
+	Surf(float ** inputPoints, vector<Face> vecFaces, vector<Point> vecPoints, string label, float alpha);
+	void runVorn(float ** inputPoints);
+	void cleanFaces(vector<bool> mask);
 public:
-	Surf(vector<Face> vecFaces, vector<Point> vecPoints, string label);
-	void exportObj(string output);
-	Surf reduce();
+	Surf * create(float ** inputPoints, bool mask[], float quan[], string label, float alpha);
+	void smoothSurf(); //smooth the surf
 };
+	

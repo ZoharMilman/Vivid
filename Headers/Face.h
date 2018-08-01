@@ -9,7 +9,7 @@ class Face
 private:
 	vector<Point> points; //holds this face points
 	float quan; //holds the quen value of this face, this value will later be translated to the color of the face
-	int Cpoints[2]; //holds the indexs for the two creating points of this face
+	int Cpoints[2]; //holds the indexs for the two creating points of this face 
 
 public:
 	Face(vector<Point> points, float quan, int Cpoints[]);
