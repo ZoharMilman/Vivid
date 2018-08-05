@@ -1,5 +1,8 @@
 #include "Surf.h"
 
+
+Surf::Surf() {};
+
 Surf::Surf(float ** inputPoints, vector<Face> vecFaces, vector<Point> vecPoints, string label, float alpha) {
 	this->inputPoints = inputPoints;
 	this->vecFaces = vecFaces;
@@ -25,8 +28,34 @@ void Surf::cleanFaces(vector<bool> mask) {
 	this->vecFaces = newFaces;
 }
 
-Surf * Surf::create(float ** inputPoints, bool mask[], float quan[], string label, float alpha) {
-	//need to know the runVorn output first
+string Surf::getLabel() {
+	return this->label;
+}
+
+void Surf::setLabel(string label) {
+	this->label = label;
+}
+
+float Surf::getAlpha() {
+	return this->alpha;
+}
+
+void Surf::setAlpha(float alpha) {
+	this->alpha = alpha;
+}
+
+void Surf::runVorn(float ** inputPoints, vector<int> quan) {
+	//defines vecFaces and vecPoints
+}
+
+Surf Surf::createSurf(float ** inputPoints, vector<bool> mask, vector<int> quan, string label, float alpha) {
+	Surf surf;
+	surf.runVorn(inputPoints, quan);
+	surf.cleanFaces(mask);
+	surf.removePoints();
+	surf.setLabel(label);
+	surf.setAlpha(alpha);
+	return surf;
 }
 
 void Surf::smoothSurf() {

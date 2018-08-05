@@ -15,18 +15,22 @@ void Face::removeFace() {
 }
 
 
-float Face::getQuan() {
+int Face::getQuan() {
 	return this->quan;
 }
 
 
-void Face::setQuan(float quan) {
+void Face::setQuan(int quan) {
 	this->quan = quan;
 }
 
 
 Point Face::getPoint(int index) {
 	return this->points[index];
+}
+
+vector<Point> Face::getPoints() {
+	return points;
 }
 
 
