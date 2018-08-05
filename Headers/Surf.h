@@ -9,10 +9,15 @@ private:
 
 
 	Surf(float ** inputPoints, vector<Face> vecFaces, vector<Point> vecPoints, string label, float alpha);
-	void runVorn(float ** inputPoints);
+	void runVorn(float ** inputPoints, vector<int> quan);
 	void cleanFaces(vector<bool> mask);
 public:
-	Surf * create(float ** inputPoints, bool mask[], float quan[], string label, float alpha);
+	Surf();
+	Surf createSurf(float ** inputPoints, vector<bool> mask, vector<int> quan, string label, float alpha);
 	void smoothSurf(); //smooth the surf
+	string getLabel();
+	void setLabel(string label);
+	float getAlpha();
+	void setAlpha(float alpha);
 };
 	
