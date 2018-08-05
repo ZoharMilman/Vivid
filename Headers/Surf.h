@@ -5,15 +5,19 @@ using namespace std;
 class Surf: public Mesh {
 private:
 
-	float ** inputPoints; // the original points that we got as an input
+	vector<float[3]> inputPoints; // the original points that we got as an input
+	vector<bool> mask;
+	vector<float> quan;
 
-
-	Surf(float ** inputPoints, vector<Face> vecFaces, vector<Point> vecPoints, string label, float alpha);
-	void runVorn(float ** inputPoints, vector<int> quan);
+	Surf(vector<float[3]> inputPoints, vector<Face> vecFaces, vector<Point> vecPoints, string label, float alpha);
+	void runVorn(vector<float[3]> inputPoints, vector<float> quan);
 	void cleanFaces(vector<bool> mask);
+	void _setPinPout(vector<int> Pout, vector<int> Pin);
+	void _updateInputPoints(vector<int> Pout, vector<int> Pin); // update Cpoints in order to run vornoi again(smooth)
+	void _makeMask(int PoutS, int PinS);
 public:
 	Surf();
-	Surf createSurf(float ** inputPoints, vector<bool> mask, vector<int> quan, string label, float alpha);
+	Surf createSurf(vector<float[3]> inputPoints, vector<bool> mask, vector<float> quan, string label, float alpha);
 	void smoothSurf(); //smooth the surf
 	string getLabel();
 	void setLabel(string label);
