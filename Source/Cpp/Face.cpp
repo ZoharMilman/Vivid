@@ -15,12 +15,12 @@ void Face::removeFace() {
 }
 
 
-int Face::getQuan() {
+float Face::getQuan() {
 	return this->quan;
 }
 
 
-void Face::setQuan(int quan) {
+void Face::setQuan(float quan) {
 	this->quan = quan;
 }
 
