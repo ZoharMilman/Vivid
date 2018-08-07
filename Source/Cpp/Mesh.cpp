@@ -6,41 +6,39 @@
 
 using namespace boost::algorithm;
 Mesh::Mesh() {}
-Mesh::Mesh(vector<Face> vecFaces, vector<Point> vecPoints, string label, float alpha) {
-	this->vecFaces = vecFaces;
-	this->vecPoints = vecPoints;
-	this->label = label;
-	this->alpha = alpha;
+Mesh::Mesh(const vector<const Point> points, const vector<IndexedFace> faces) {
+	this->points = points;
+	this->faces = faces;
 }
 
-void Mesh::removePoints() {
-	vector<Point> newPoints;
-	for (vector<Point>::iterator it = vecPoints.begin(); it != vecPoints.end(); it++){
-		if (it->isPointDel() != true) {
-			newPoints.push_back(*it);
-		}
-	}
-	this->vecPoints = newPoints;
-}
+//void Mesh::removePoints() {
+//	vector<Point> newPoints;
+//	for (vector<Point>::iterator it = points.begin(); it != points.end(); it++){
+//		if (it->isPointDel() != true) {
+//			newPoints.push_back(*it);
+//		}
+//	}
+//	this->points = newPoints;
+//}
 
-vector<float> static quan2color(float quan) {
-	vector<float> output;
-	output.push_back(0);
-	output.push_back(0);
-	output.push_back(0);
-	return output;
-}
+//vector<float> static quan2color(float quan) {
+//	vector<float> output;
+//	output.push_back(0);
+//	output.push_back(0);
+//	output.push_back(0);
+//	return output;
+//}
 
-bool static compareColor(vector<float> color, vector<float> color2) {
-	return (color[0] == color2[0] && color[1] == color2[1] && color[2] == color2[2]);
-}
+//bool static compareColor(vector<float> color, vector<float> color2) {
+//	return (color[0] == color2[0] && color[1] == color2[1] && color[2] == color2[2]);
+//}
+//
+//bool compareQuan(Face face1, Face face2) {
+//	return (face1.getQuan() > face2.getQuan());
+//}
+//bool(*compFace)(Face, Face) = compareQuan;
 
-bool compareQuan(Face face1, Face face2) {
-	return (face1.getQuan() > face2.getQuan());
-}
-bool(*compFace)(Face, Face) = compareQuan;
-
-void Mesh::exportObj(string output) { //TODO get the color sorted(a way to convert quan to color)
+void operator<<(string output) { //TODO get the color sorted(a way to convert quan to color)
 	if (ends_with(output, ".obj")) { //check if hte output file ends with .obj, and delete it if it does
 		output.erase(output.length() - 4, 4);
 	}
@@ -112,7 +110,7 @@ void Mesh::exportObj(string output) { //TODO get the color sorted(a way to conve
 	m.close();
 }
 
-Mesh Mesh::reduce() {
+void Mesh::simplify() {
 	//TODO sort out the reduse
 	Mesh mesh;
 	return mesh;
